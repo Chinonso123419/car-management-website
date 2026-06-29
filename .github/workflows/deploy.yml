@@ -17,15 +17,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
+          cache: 'pnpm'
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install
       - name: Build app
         run: pnpm build
-      - name: Export static site
-        run: pnpm export
       - name: Create GitHub Pages support files
         run: |
           echo "kdrive.com.mg" > out/CNAME
